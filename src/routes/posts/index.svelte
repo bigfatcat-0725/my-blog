@@ -1,12 +1,10 @@
 <script context="module">
 	const allPosts = import.meta.glob('./*.md')
-	console.log(allPosts)
 
 	let body = []
 	for (let path in allPosts) {
 		body.push(
 			allPosts[path]().then(({ metadata }) => {
-				console.log({ path, metadata })
 				return { path, metadata }
 			})
 		)
@@ -14,7 +12,6 @@
 
 	export const load = async () => {
 		const posts = await Promise.all(body)
-		console.log(posts)
 
 		return {
 			props: {
@@ -32,8 +29,6 @@
 	const dateSortedPosts = posts.sort((post1, post2) => {
 		return new Date(post2.metadata.date) - new Date(post1.metadata.date)
 	})
-
-	console.log(dateSortedPosts)
 </script>
 
 <svelte:head>
@@ -42,45 +37,40 @@
 
 <div class="box">
 	<div class="tags">
-		<p>Tags 📌</p>
+		<p>- Tags 📌</p>
 		<ul>
 			<li>
-				<a href="/tags/tech"># tech</a>
+				<a class="btn" href="/posts"># all</a>
 			</li>
 			<li>
-				<a href="/tags/spiritual"># spiritual</a>
+				<a class="btn" href="/tags/workout"># workout</a>
 			</li>
 			<li>
-				<a href="/tags/personal"># personal</a>
+				<a class="btn" href="/tags/eat"># eat</a>
+			</li>
+			<li>
+				<a class="btn" href="/tags/dev"># dev</a>
 			</li>
 		</ul>
 	</div>
 	<div class="posts">
 		<ul class="post-cards">
-			{#each dateSortedPosts as { path, metadata: { title, description, tags, date } }}
+			{#each dateSortedPosts as { path, metadata: { thumbnail, title, tags, date } }}
 				<li class="post-card">
-					<!-- <a href={`/posts/${path.replace('.md', '')}`}>{title}</a>
-					<p class="">{new Date(date).toDateString()}</p>
-					<p>
-						{#each tags as tag}
-							<a class="" href={`/tags/${tag}`}>#{tag}</a>
-						{/each}
-					</p> -->
 					<div class="card card-compact bg-base-300 shadow-xl">
 						<figure>
-							<img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" />
+							<img class="thumbnail" src={`${thumbnail}`} alt="thumbnail" />
 						</figure>
-						<div class="card-body">
+						<div class="card-body gap-0.5">
 							<h2 class="card-title">{title}</h2>
-							<p class="">{new Date(date).toDateString()}</p>
-							<p>{description}</p>
+							<p class="mb-3">{new Date(date).toLocaleDateString()}</p>
 							<div class="card-actions justify-end">
 								<p>
 									{#each tags as tag}
 										<a class="" href={`/tags/${tag}`}>#{tag}</a>
 									{/each}
 								</p>
-								<a href={`/posts/${path.replace('.md', '')}`} class="btn btn-primary">READ MORE</a>
+								<a href={`/posts/${path.replace('.md', '')}`} class="btn">READ MORE</a>
 							</div>
 						</div>
 					</div>
@@ -119,5 +109,20 @@
 		margin-left: 1rem;
 		margin-bottom: 1rem;
 		width: 100%;
+	}
+	.card-title {
+		font-weight: normal;
+	}
+	.thumbnail {
+		padding: 1rem 1rem;
+		width: 30rem;
+		height: 20rem;
+	}
+	@media (min-width: 1024px) {
+		.post-card {
+			margin-left: 1rem;
+			margin-bottom: 1rem;
+			width: 31%;
+		}
 	}
 </style>

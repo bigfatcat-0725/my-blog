@@ -11,7 +11,6 @@
 	}
 
 	export const load = async ({ params }) => {
-		console.log(params.tag)
 		const posts = await Promise.all(body)
 		const tag = params.tag
 
@@ -20,10 +19,8 @@
 		})
 
 		return {
-			params,
 			props: {
-				filteredPost,
-				tag
+				filteredPost
 			}
 		}
 	}
@@ -31,7 +28,6 @@
 
 <script>
 	export let filteredPost
-	// export let tag
 </script>
 
 <svelte:head>
@@ -40,37 +36,42 @@
 
 <div class="box">
 	<div class="tags">
+		<p>- Tags 📌</p>
 		<ul>
 			<li>
-				<a href="/tags/tech"># tech</a>
+				<a class="btn" href="/posts"># all</a>
 			</li>
 			<li>
-				<a href="/tags/spiritual"># spiritual</a>
+				<a class="btn" href="/tags/workout"># workout</a>
 			</li>
 			<li>
-				<a href="/tags/personal"># personal</a>
+				<a class="btn" href="/tags/eat"># eat</a>
+			</li>
+			<li>
+				<a class="btn" href="/tags/dev"># dev</a>
 			</li>
 		</ul>
 	</div>
 	<div class="posts">
 		<ul class="post-cards">
-			{#each filteredPost as { path, metadata: { title, description, tags, date } }}
+			{#each filteredPost as { path, metadata: { thumbnail, title, tags, date } }}
 				<li class="post-card">
 					<div class="card card-compact bg-base-300 shadow-xl">
 						<figure>
-							<img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" />
+							<img class="thumbnail" src={`${thumbnail}`} alt="thumbnail" />
 						</figure>
-						<div class="card-body">
+						<div class="card-body gap-0.5">
 							<h2 class="card-title">{title}</h2>
-							<p class="">{new Date(date).toDateString()}</p>
-							<p>{description}</p>
+							<p class="mb-3">{new Date(date).toLocaleDateString()}</p>
 							<div class="card-actions justify-end">
 								<p>
 									{#each tags as tag}
 										<a class="" href={`/tags/${tag}`}>#{tag}</a>
 									{/each}
 								</p>
-								<a href={`/posts/${path.replace('.md', '')}`} class="btn btn-primary">READ MORE</a>
+								<a href={`/posts/${path.replace('.md', '')}`} class="btn btn-neutral-content"
+									>READ MORE</a
+								>
 							</div>
 						</div>
 					</div>
@@ -88,6 +89,15 @@
 	.tags {
 		flex: 1;
 	}
+	.tags p {
+		margin-bottom: 1rem;
+	}
+	.tags li {
+		margin-bottom: 0.5rem;
+	}
+	.tags a {
+		white-space: nowrap;
+	}
 	.posts {
 		flex: 9;
 		margin-left: 1rem;
@@ -100,5 +110,20 @@
 		margin-left: 1rem;
 		margin-bottom: 1rem;
 		width: 100%;
+	}
+	.card-title {
+		font-weight: normal;
+	}
+	.thumbnail {
+		padding: 1rem 1rem;
+		width: 30rem;
+		height: 20rem;
+	}
+	@media (min-width: 1024px) {
+		.post-card {
+			margin-left: 1rem;
+			margin-bottom: 1rem;
+			width: 48%;
+		}
 	}
 </style>
