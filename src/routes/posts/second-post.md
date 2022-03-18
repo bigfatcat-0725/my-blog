@@ -1,5 +1,6 @@
 ---
 title: Todo app I use
+description: Todays todo
 tags:
   - personal
   - tech

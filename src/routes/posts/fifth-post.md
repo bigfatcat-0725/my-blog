@@ -1,5 +1,6 @@
 ---
 title: SvelteKit
+description: Todays todo
 tags:
   - tech
 date: 2022-02-21
