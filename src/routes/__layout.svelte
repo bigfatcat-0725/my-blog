@@ -1,5 +1,5 @@
 <script>
-	import '../app.css';
+	import '../app.css'
 </script>
 
 <div class="drawer h-screen w-full">
@@ -24,16 +24,14 @@
 				</label>
 			</div>
 			<div class="flex-1 px-2">
-				<img class="w-8 mr-2" src="static/cat.svg" alt="" />
+				<img class="w-8 ml-2 mr-2" src="/static/cat.svg" alt="cat logo" />
 				BIGFATCAT0725
 			</div>
 			<div class="flex-none hidden lg:block">
 				<ul class="menu menu-horizontal">
 					<!-- Navbar menu content here -->
 					<li><a href="/">Home</a></li>
-					<li><a href="/workout">Workout</a></li>
-					<li><a href="/item">Item</a></li>
-					<li><a href="/eat">Eat</a></li>
+					<li><a href="/posts">Posts</a></li>
 					<li><a href="/about">About</a></li>
 				</ul>
 			</div>
@@ -46,9 +44,7 @@
 		<ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
 			<!-- Sidebar content here -->
 			<li><a href="/">Home</a></li>
-			<li><a href="/workout">Workout</a></li>
-			<li><a href="/item">Item</a></li>
-			<li><a href="/eat">Eat</a></li>
+			<li><a href="/posts">Posts</a></li>
 			<li><a href="/about">About</a></li>
 		</ul>
 	</div>
