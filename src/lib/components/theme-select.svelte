@@ -39,3 +39,9 @@
 	<option value="halloween">Dark</option>
 	<option value="light">Light</option>
 </select>
+
+<style>
+	select {
+		border-radius: 0;
+	}
+</style>

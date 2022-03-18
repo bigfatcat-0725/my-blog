@@ -36,7 +36,6 @@
 
 <div class="box">
 	<div class="tags">
-		<p>- Tags 📌</p>
 		<ul>
 			<li>
 				<a class="btn" href="/posts"># all</a>
@@ -61,12 +60,12 @@
 							<img class="thumbnail" src={`${thumbnail}`} alt="thumbnail" />
 						</figure>
 						<div class="card-body gap-0.5">
-							<h2 class="card-title">{title}</h2>
+							<h2 class="card-title tracking-wide">{title}</h2>
 							<p class="mb-3">{new Date(date).toLocaleDateString()}</p>
 							<div class="card-actions justify-end">
 								<p>
 									{#each tags as tag}
-										<a class="" href={`/tags/${tag}`}>#{tag}</a>
+										<a class="uppercase" href={`/tags/${tag}`}>#{tag}</a>
 									{/each}
 								</p>
 								<a href={`/posts/${path.replace('.md', '')}`} class="btn btn-neutral-content"
@@ -119,11 +118,25 @@
 		width: 30rem;
 		height: 20rem;
 	}
+	.btn {
+		font-weight: normal;
+		border-radius: 0;
+	}
+	.card {
+		border-radius: 0;
+	}
+	@media (min-width: 510px) {
+		.post-card {
+			margin-left: 1rem;
+			margin-bottom: 1rem;
+			width: 47%;
+		}
+	}
 	@media (min-width: 1024px) {
 		.post-card {
 			margin-left: 1rem;
 			margin-bottom: 1rem;
-			width: 48%;
+			width: 31%;
 		}
 	}
 </style>

@@ -31,8 +31,10 @@
 				</label>
 			</div>
 			<div class="flex-1">
-				<img class="w-8 mr-4" src="/static/cat.svg" alt="cat logo" />
-				BIGFATCAT0725
+				<div class="btn bg-base-300">
+					<img class="w-8 mr-4" src="/static/cat.svg" alt="cat logo" />
+					BIGFATCAT0725
+				</div>
 			</div>
 			<div class="flex-none hidden lg:block">
 				<ul class="menu menu-horizontal">
@@ -66,3 +68,10 @@
 		<p>Copyright © 2022 - All right reserved by bigfatcat0725</p>
 	</div>
 </footer>
+
+<style>
+	.btn {
+		border-radius: 0;
+		border: 0;
+	}
+</style>
