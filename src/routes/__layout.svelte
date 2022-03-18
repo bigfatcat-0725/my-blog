@@ -1,5 +1,6 @@
 <script>
 	import '../app.css'
+
 	import { onMount } from 'svelte'
 	import { themeChange } from 'theme-change'
 	import ThemeSelect from '$lib/components/theme-select.svelte'
@@ -32,7 +33,7 @@
 			</div>
 			<div class="flex-1">
 				<div class="btn bg-base-300">
-					<img class="w-8 mr-4" src="/static/cat.svg" alt="cat logo" />
+					<img class="w-8 mr-4" src="../../static/cat.svg" alt="cat logo" />
 					BIGFATCAT0725
 				</div>
 			</div>
