@@ -42,6 +42,7 @@
 
 <div class="box">
 	<div class="tags">
+		<p>Tags 📌</p>
 		<ul>
 			<li>
 				<a href="/tags/tech"># tech</a>
@@ -96,6 +97,15 @@
 	}
 	.tags {
 		flex: 1;
+	}
+	.tags p {
+		margin-bottom: 1rem;
+	}
+	.tags li {
+		margin-bottom: 0.5rem;
+	}
+	.tags a {
+		white-space: nowrap;
 	}
 	.posts {
 		flex: 9;

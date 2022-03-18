@@ -11,17 +11,29 @@ date: 2022-02-17
   <meta name="description" content={title} />
 </svelte:head>
 
-# {title}
-
-<small>{new Date(date).toDateString()}</small>
+<div class="box">
+<h1>{title}</h1>
+<p class="date">{new Date(date).toDateString()}</p>
 
 This is First post
 
+</div>
+
 <style>
-  small {
-    color: gray
+  * {
+    margin: 0 auto;
+    text-align: center;
+    color: white;
   }
-  p {
-    color: white
+  .box {
+    width: 90%;
   }
+  h1 {
+    font-size: 2rem
+  }
+  .date {
+    text-align: right;
+    color: gray;
+  }
+ 
 </style>
