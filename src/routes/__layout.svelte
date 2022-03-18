@@ -2,6 +2,7 @@
 	import '../app.css'
 	import { onMount } from 'svelte'
 	import { themeChange } from 'theme-change'
+	import ThemeSelect from '$lib/components/theme-select.svelte'
 
 	onMount(async () => {
 		themeChange(false)
@@ -12,7 +13,7 @@
 	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
 	<div class="drawer-content flex flex-col">
 		<!-- Navbar -->
-		<div class="w-full navbar bg-base-300">
+		<div class="w-full navbar bg-base-300 px-4">
 			<div class="flex-none lg:hidden">
 				<label for="my-drawer-3" class="btn btn-square btn-ghost">
 					<svg
@@ -29,17 +30,20 @@
 					>
 				</label>
 			</div>
-			<div class="flex-1 px-2">
-				<img class="w-8 ml-2 mr-2" src="/static/cat.svg" alt="cat logo" />
+			<div class="flex-1">
+				<img class="w-8 mr-4" src="/static/cat.svg" alt="cat logo" />
 				BIGFATCAT0725
 			</div>
 			<div class="flex-none hidden lg:block">
 				<ul class="menu menu-horizontal">
 					<!-- Navbar menu content here -->
-					<li><a href="/">Home</a></li>
+					<li>
+						<a href="/">Home</a>
+					</li>
 					<li><a href="/posts">Posts</a></li>
 					<li><a href="/about">About</a></li>
 				</ul>
+				<ThemeSelect />
 			</div>
 		</div>
 		<!-- Page content here -->

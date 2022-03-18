@@ -2,10 +2,12 @@
 	// @ts-nocheck
 </script>
 
-<div class="mb-8">
-	<select data-choose-theme class="select select-bordered select-primary w-full max-w-3xl text-xl">
-		<option disabled="disabled" selected="selected">Choose a theme</option>
-		<option value="acid">Acid</option>
+<select
+	data-choose-theme
+	class="pr-9 select select-bordered bg-base-100 select-sx text-base-content"
+>
+	<option disabled="disabled" selected="selected">Choose a theme</option>
+	<!-- <option value="acid">Acid</option>
 		<option value="aqua">Aqua</option>
 		<option value="autumn">Autumn</option>
 		<option value="black">Black</option>
@@ -33,6 +35,7 @@
 		<option value="synthwave">Synthwave</option>
 		<option value="valentine">Valentine</option>
 		<option value="winter">Winter</option>
-		<option value="wireframe">Wireframe</option>
-	</select>
-</div>
+		<option value="wireframe">Wireframe</option> -->
+	<option value="halloween">Dark</option>
+	<option value="light">Light</option>
+</select>
